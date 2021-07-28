@@ -32,9 +32,9 @@ To run this project locally, follow these steps.
 1. Clone the project locally, change into the directory, and install the dependencies:
 
 ```sh
-git clone https://github.com/dabit3/polygon-ethereum-nextjs-marketplace.git
+git clone https://github.com/liuhaidong/bsc-nextjs-marketplace.git
 
-cd polygon-ethereum-nextjs-marketplace
+cd bsc-nextjs-marketplace
 
 # install using NPM or Yarn
 npm install
@@ -80,16 +80,17 @@ module.exports = {
     hardhat: {
       chainId: 1337
     },
-    mumbai: {
-      // Infura
-      // url: `https://polygon-mumbai.infura.io/v3/${infuraId}`
-      url: "https://rpc-mumbai.matic.today",
+    testnet: {
+      url: "https://data-seed-prebsc-1-s1.binance.org:8545",
+      chainId: 97,
+      gasPrice: 20000000000,
       accounts: [privateKey]
     },
-    matic: {
-      // Infura
-      // url: `https://polygon-mainnet.infura.io/v3/${infuraId}`,
-      url: "https://rpc-mainnet.maticvigil.com",
+    //accounts: {mnemonic: mnemonic}
+    mainnet: {
+      url: "https://bsc-dataseed.binance.org/",
+      chainId: 56,
+      gasPrice: 20000000000,
       accounts: [privateKey]
     }
   },
