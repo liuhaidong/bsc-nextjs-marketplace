@@ -1,6 +1,5 @@
-## Full stack NFT marketplace built with Polygon, Solidity, IPFS, & Next.js
+## Full stack NFT marketplace built with BSC, Solidity, IPFS, & Next.js
 
-![Header](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/pfofv47dooojerkmfgr4.png)
 
 ### Running this project
 
