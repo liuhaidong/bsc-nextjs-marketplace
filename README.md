@@ -1,4 +1,4 @@
-## Full stack NFT marketplace built with BSC, Solidity, IPFS, & Next.js
+## Full stack Upgradeable NFT Marketplace built with BSC, Solidity, IPFS, & Next.js
 
 
 ### Running this project
@@ -50,11 +50,19 @@ yarn
 npx hardhat node
 ```
 
-3. With the network running, deploy the contracts to the local network in a separate terminal window
+3. With the network running, 
+3.1. deploy the contracts to the local network in a separate terminal window
 
 ```sh
 npx hardhat run scripts/deploy.js --network localhost
 ```
+3.2. deploy the contracts to the bsc test network by
+
+```sh
+npx hardhat run scripts/deploy.js --network testnet
+```
+For latest bsc rpc node , please check the page:
+https://docs.binance.org/smart-chain/developer/rpc.html
 
 4. Start the app
 
