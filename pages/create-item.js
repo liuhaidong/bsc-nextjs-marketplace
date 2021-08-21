@@ -19,7 +19,9 @@ const client = ipfsHttpClient({
   port: 5001,
   protocol: 'https',
   headers: {
-    authorization: auth
+    authorization: auth,
+    'Access-Control-Allow-Origin': '*'
+
   }
 })
 
