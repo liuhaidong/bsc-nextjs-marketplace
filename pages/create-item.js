@@ -1,17 +1,30 @@
 import { useState } from 'react'
 import { ethers } from 'ethers'
-import { create as ipfsHttpClient } from 'ipfs-http-client'
 import { useRouter } from 'next/router'
 import Web3Modal from 'web3modal'
-
-const client = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0')
-
 import {
   nftaddress, nftmarketaddress
 } from '../config'
-
 import NFT from '../artifacts/contracts/NFT.sol/NFT.json'
 import Market from '../artifacts/contracts/Market.sol/NFTMarket.json'
+import { create as ipfsHttpClient } from 'ipfs-http-client'
+
+const projectId = process.env.INFURA_IPFS_PROJECT_ID
+const projectSecret = process.env.INFURA_IPFS_SECRET
+const auth =
+  'Basic ' + Buffer.from(projectId + ':' + projectSecret).toString('base64')
+
+const client = ipfsHttpClient({
+  host: 'ipfs.infura.io',
+  port: 5001,
+  protocol: 'https',
+  headers: {
+    authorization: auth
+  }
+})
+
+//const client = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0')
+
 
 export default function CreateItem() {
   const [fileUrl, setFileUrl] = useState(null)
