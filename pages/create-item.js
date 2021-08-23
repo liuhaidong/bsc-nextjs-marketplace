@@ -50,7 +50,7 @@ export default function CreateItem() {
   }
   async function createMarket() {
     const { name, description, price, url } = formInput
-    if (!name || !description || !price || !fileUrl) return
+    if (!name || !description || !price || !url) return
     /* first, upload to IPFS */
     const data = JSON.stringify({
       name, description, image: url
