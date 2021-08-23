@@ -36,6 +36,7 @@ export default function Home() {
         name: meta.data.name,
         description: meta.data.description,
       }
+      console.log('Item : ', item)
       return item
     }))
     setNfts(items)
