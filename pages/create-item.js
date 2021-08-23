@@ -30,7 +30,7 @@ const client = ipfsHttpClient({
 
 export default function CreateItem() {
   const [fileUrl, setFileUrl] = useState(null)
-  const [formInput, updateFormInput] = useState({ price: '', name: '', description: '' })
+  const [formInput, updateFormInput] = useState({ price: '', name: '', description: '',url:'' })
   const router = useRouter()
 
   async function onChange(e) {
@@ -49,15 +49,15 @@ export default function CreateItem() {
     }  
   }
   async function createMarket() {
-    const { name, description, price } = formInput
+    const { name, description, price, url } = formInput
     if (!name || !description || !price || !fileUrl) return
     /* first, upload to IPFS */
     const data = JSON.stringify({
-      name, description, image: fileUrl
+      name, description, image: url
     })
     try {
-      const added = await client.add(data)
-      const url = `https://ipfs.infura.io/ipfs/${added.path}`
+      // const added = await client.add(data)
+      // const url = `https://ipfs.infura.io/ipfs/${added.path}`
       /* after file is uploaded to IPFS, pass the URL to save it on Polygon */
       createSale(url)
     } catch (error) {
@@ -108,6 +108,11 @@ export default function CreateItem() {
           placeholder="Asset Price in Eth"
           className="mt-2 border rounded p-4"
           onChange={e => updateFormInput({ ...formInput, price: e.target.value })}
+        />
+        <input
+          placeholder="Ipfs URL"
+          className="mt-2 border rounded p-4"
+          onChange={e => updateFormInput({ ...formInput, url: e.target.value })}
         />
         <input
           type="file"
